@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>demo3</title>
+		<style>
+			.position-relative{
+				position:relative;
+			}
+			#box1 {
+				width:100px;
+				height:100px;
+				background:#fff;
+				border:2px solid #000;
+				position:absolute;
+			}
+			#box2{
+				width:280px;
+				height:100px;
+				background:#fff;
+				border:10px solid #ccc;
+				display:none;
+				margin:100px 600px;
+				position:absolute;
+			}
+			#box4{
+				text-align:center;
+			}
+			#btn1,#btn2{
+				background:red;
+			}
+			#btn3{
+				background:yellow;
+			}
+			#btn4,#btn11,#btn12{
+				background:blue;
+				color:white;
+			}
+
+		</style>
+		<script>
+		window.onload = function (){
+			var oBtn1 = document.getElementById('btn1');
+			var oBtn2 = document.getElementById('btn2');
+			var oBtn3 = document.getElementById('btn3');
+			var oBtn4 = document.getElementById('btn4');
+			var oBtn5 = document.getElementById('btn5');
+			var oBtn6 = document.getElementById('btn6');
+			var oBtn7 = document.getElementById('btn7');
+			var oBtn8 = document.getElementById('btn8');
+			var oBtn9 = document.getElementById('btn9');
+			var oBtn10 = document.getElementById('btn10');
+			var oBtn11 = document.getElementById('btn11');
+			var oBtn12 = document.getElementById('btn12');
+			var oDiv1 = document.getElementById('box1');
+			var oDiv2 = document.getElementById('box2');
+			
+			oBtn1.onclick = function (){
+				oDiv2.style.display = 'block';
+			}
+			oBtn2.onclick = function (){
+				oDiv1.style.background = 'red';
+			}
+			oBtn3.onclick = function (){
+				oDiv1.style.background = 'yellow';
+			}
+			oBtn4.onclick = function (){
+				oDiv1.style.background = 'blue';
+			}
+			oBtn5.onclick = function (){
+				oDiv1.style.width = '200px';
+			}
+			oBtn6.onclick = function (){
+				oDiv1.style.width = '300px';
+			}
+			oBtn7.onclick = function (){
+				oDiv1.style.width = '400px';
+			}
+			oBtn8.onclick = function (){
+				oDiv1.style.height = '200px';
+			}
+			oBtn9.onclick = function (){
+				oDiv1.style.height = '300px';
+			}
+			oBtn10.onclick = function (){
+				oDiv1.style.height = '400px';
+			}
+			oBtn11.onclick = function (){
+				oDiv1.style.width = '100px';
+				oDiv1.style.height = '100px';
+				oDiv1.style.background = '#fff';
+				oDiv1.style.border = '2px solid #000';
+			}
+			oBtn12.onclick = function (){
+				oDiv2.style.display = 'none';
+			}
+			
+		};
+		</script>
+	</head>
+	<body>
+	<strong>请为下面的div设置样式:</strong>
+	<input id="btn1" type="button" value="显示设置" />
+	<div class="position-relative">
+		<div id="box1"></div>
+		<div id="box2">
+			<div id="box3">
+				<strong>请选择背景色:</strong>
+				<input id="btn2" type="button" value="红" />
+				<input id="btn3" type="button" value="黄" />
+				<input id="btn4" type="button" value="蓝" />
+				<br />
+				<strong>请选择宽(px):</strong>
+				<input id="btn5" type="button" value="200" />
+				<input id="btn6" type="button" value="300" />
+				<input id="btn7" type="button" value="400" />
+				<br />
+				<strong>请选择高(px):</strong>
+				<input id="btn8" type="button" value="200" />
+				<input id="btn9" type="button" value="300" />
+				<input id="btn10" type="button" value="400" />
+				<br />
+			</div>
+			<div id="box4">
+				<input id="btn11" type="button" value="恢复" />
+				<input id="btn12" type="button" value="确认" />
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

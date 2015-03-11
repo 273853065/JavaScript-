@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>demo7</title>
+	<script>
+	window.onload = function (){
+		var oImg = document.getElementById('img1');
+		var onOff = true;//开关
+		oImg.onclick = function (){
+			if(onOff){
+				oImg.src = 'dog.png';
+				onOff = false;
+			}else{
+				oImg.src = 'me.jpg';
+				onOff = true;
+			}
+		}
+	};
+	</script>
+</head>
+<body>
+	<img id="img1" src="me.jpg">
+</body>
