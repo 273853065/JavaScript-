@@ -4,6 +4,10 @@
 	<meta charset="utf-8">
 	<title>demo14</title>
 	<style>
+		#Btn{
+			margin:10px auto;
+			width:150px;
+		}
 		#content{
 			width:400px;
 			height:400px;
@@ -62,14 +66,23 @@
 	</style>
 	<script>
 	window.onload = function (){
+		var oBtn1 = document.getElementById('btn1');
+		var oBtn2 = document.getElementById('btn2');
 		var oPrev = document.getElementById('prev');
 		var oNext = document.getElementById('next');
 		var oSpan = document.getElementById('span1');
 		var oImg = document.getElementById('img1');
 		var oText = document.getElementById('text');
-		var arrUrl = ['me.jpg','dog.png','smalldog.png'];
-		var arrText = ['我','大图豆豆','小图豆豆'];
+		var arrUrl = ['bf1.png','bf2.gif','bf3.jpg'];
+		var arrText = ['境界的彼方','动图彼方','彼方'];
 		var num = 0;
+		var mutex = 0;
+		oBtn1.onclick = function (){
+			mutex = 1;
+		};
+		oBtn2.onclick = function (){
+			mutex = 0;
+		};
 		function fnTab(){
 			oSpan.innerHTML = num + 1 + '/' + arrText.length;
 			oImg.src = arrUrl[num]; 
@@ -79,14 +92,22 @@
 		oPrev.onclick = function (){
 			num --;
 			if(num < 0){
-				num = arrText.length - 1;
+				if(mutex == 1){
+					num = arrText.length - 1;
+				}else{
+					num = 0;
+				}
 			}
 			fnTab();
 		};
 		oNext.onclick = function (){
 			num ++;
 			if(num > arrText.length - 1){
-				num = 0;
+				if(mutex == 1){
+					num = 0;
+				}else{
+					num = arrText.length - 1;
+				}
 			}
 			fnTab();
 		};
@@ -94,6 +115,10 @@
 	</script>
 </head>
 <body>
+	<div id="Btn">
+		<input id="btn1" type="button" value="滚动" />
+		<input id="btn2" type="button" value="单次" />
+	</div>
 	<div id="content">
 		<a id="prev" href="javascript:;"><</a>
 		<a id="next" href="javascript:;">></a>

@@ -1,0 +1,115 @@
+<!DOCtype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#content{
+			width:500px;
+			height:500px;
+			margin:20px auto;
+			position:relative;
+			}
+			#board{
+				width:206px;
+				height:326px;
+				background:#ddd;
+				position:absolute;
+			}
+			#chat{
+				width:206px;
+				height:366px;
+				margin:66px 147px;
+				background:#ddd;
+				position:absolute;
+			}
+			.form-control {
+			    border: 1px solid #ccc;
+			    color: #555;
+			    font-size: 16px;
+			    height: 25px;
+			    width: 118px;
+			    border-radius: 4px;
+			}
+			.btn {
+			    border: 1px solid #ccc;
+			    border-radius: 4px;
+			    cursor: pointer;
+			    font-size: 14px;
+			    font-weight: 400;
+			    text-align: center;
+			    height:25px;
+			    width:40px;
+			    margin:5px 0 0 -3px;
+			}
+			.btn-primary {
+			    background-color: #337ab7;
+			    border-color: #2e6da4;
+			    color: #fff;
+			}
+			#img{
+				border: 1px solid #ccc;
+			    border-radius: 4px;
+				height:25px;
+				width:25px;
+				cursor: pointer;
+				margin:5px -3px -8px 3px;
+			}
+			#submit{
+				width:206px;
+				height:40px;
+				bottom:0;
+				margin:0 0 3px 0;
+				position:absolute;
+				background:#eee;
+			}
+		</style>
+		<script>
+			window.onload = function (){
+				var oImg = document.getElementById('img');
+				var oText = document.getElementById('text');
+				var oBtn = document.getElementById('btn');
+				var oDiv = document.getElementById('board');
+				var onOff = 1;
+				var arrUrl = ['gd.png','xy.jpg'];
+				function fnTab(){
+					oImg.src = arrUrl[onOff];
+				}
+				fnTab();
+				oImg.onclick = function (){
+					if(onOff){
+						onOff = 0;
+						fnTab();	
+					}else{
+						onOff = 1;
+						fnTab();						
+					}
+				};
+				oBtn.onclick = function (){
+					if(oText.value == ''){
+					}else{
+						if(onOff){
+							oDiv.innerHTML = 'Hyuna:' + oText.value + '<br />'+ oDiv.innerHTML;
+						}else{
+							oDiv.innerHTML = 'G-dragon:' + oText.value + '<br />'+ oDiv.innerHTML;
+						}
+					}
+					oText.value = ''; 
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="chat">
+				<div id="board"></div>
+				<div id="submit">
+					<img id="img" />					
+					<input id="text" type="text"  class="form-control" />
+					<input id="btn" class="btn btn-primary" type="button" value="发送" />					
+				</div>
+			</div>
+			<img src="iphone.jpg" />
+		</div>
+	</body>
+</html>
