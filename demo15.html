@@ -64,23 +64,50 @@
 				position:absolute;
 				background:#eee;
 			}
-			#xy{
-				width:160px;
-				float:left;
-				background:#ccc;
-				color:#000;
-			}
-			#gd{
-				width:160px;
-				float:right;
-				background:
-			}
-			#cimg{
+			#img1{
 				border: 1px solid #ccc;
 			    border-radius: 4px;
 				height:25px;
 				width:25px;
-				margin:5px -3px -8px 3px;
+				margin:5px -3px auto 3px;
+				position:absolute;
+			}
+			#board1{
+			    color: #fff;
+			    font-size: 16px;
+			    width: 130px;
+			    border-radius: 4px;
+			    background:#999;
+			    text-align:center;
+			    word-wrap:break-word;
+			    padding:3px;
+			    position:absolute;
+			    margin:5px 0 5px 40px;;
+			}
+			#box1{
+				height:auto;
+				margin-top:10px;
+			}
+			#box2{
+				margin:5px 0 5px 0;
+			}
+			#board2{
+				color: #fff;
+			    font-size: 16px;
+			    width: 130px;
+			    border-radius: 4px;
+			    background:#337ab7;
+			    text-align:center;
+			    margin:5px 0 5px 40px;
+			    word-wrap:break-word;
+			    padding:3px;
+			}
+			#img2{
+				border: 1px solid #ccc;
+			    border-radius: 4px;
+				height:25px;
+				width:25px;
+				margin:5px 0 0 180px;
 			}
 		</style>
 		<script>
@@ -88,7 +115,7 @@
 				var oImg = document.getElementById('img');
 				var oText = document.getElementById('text');
 				var oBtn = document.getElementById('btn');
-				var oDiv = document.getElementById('board');
+				var oDiv1 = document.getElementById('board');
 				var onOff = 1;
 				var arrUrl = ['gd.png','xy.jpg'];
 				function fnTab(){
@@ -108,17 +135,18 @@
 					if(oText.value == ''){
 					}else{
 						if(onOff){
-							oDiv.innerHTML = 'Hyuna:' + oText.value + '<br />'+ oDiv.innerHTML;
+							oDiv1.innerHTML = '<div id="box1"><img id="img1" src="xy.jpg" /><div id="board1">' + oText.value + '</div></div>' + '<br /><br />' + oDiv1.innerHTML;
 						}else{
-							oDiv.innerHTML = 'G-dragon:' + oText.value + '<br />'+ oDiv.innerHTML;
+							oDiv1.innerHTML = '<div id="box2"><div id="board2">' + oText.value + '</div><img id="img2" src="gd.png" /></div>' + '<br /><br />' + oDiv1.innerHTML;
 						}
 					}
 					oText.value = ''; 
 				};
-				var box = document.createElement("div"); 		
+				/*var box = document.createElement("div"); 		
 				document.body.appendChild(box);		
 				box.id = "RF_Dialog";		
-				box.style.cssText = "width:300px;height:300px;background:#ccc;display:block;position:absolute";
+				box.style.cssText = "width:300px;height:300px;background:#ccc;display:block;position:absolute";*/
+				//1、仍旧存在问题，如何动态换行，使窗口之间不重叠
 			}
 		</script>
 	</head>
@@ -128,7 +156,7 @@
 				<div id="board"></div>
 				<div id="submit">
 					<img id="img" />					
-					<input id="text" type="text"  class="form-control" />
+					<input id="text" type="text"  class="form-control"  />
 					<input id="btn" class="btn btn-primary" type="button" value="发送" />					
 				</div>
 			</div>
