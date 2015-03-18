@@ -6,7 +6,12 @@
 	<script>
 	$(document).ready(function(){
 		$("button").click(function(){
-			$(this).hide();
+			//$("p").css("background","red");
+			//不能这样写，必须得加speed参数$("p").fadeTo(0.3);
+			//$("p").hide(10000);
+			//$("p").toggle(10000);
+			//$("p").slideToggle();
+			$("p").animate({fontSize:'200px'});
 		});
 	});
 	</script>
@@ -14,5 +19,5 @@
 <body>
 	<p>dianoow</p>
 	<button type="button">按钮</button>
-	<p id="nihao">a;ljdf;akjf l</p>
+	<h1 id="nihao">a;ljdf;akjf l</h1>
 </body>
