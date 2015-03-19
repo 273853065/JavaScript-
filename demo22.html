@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>AJAX</title>
+		<script src="jquery-1.11.2.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#btn").click(function(){
+					$('#test').load('1.txt');
+				})
+			})
+		</script>
+	</head>
+<body>
+<h3 id="test">i really you</h3>
+<button id="btn" type="button">
+	获取歌词
+</button>
+
+</body>
+</html>

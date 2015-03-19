@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>new comer</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+	</head>
+	<body>
+		<button id="check">new comer</button>
+		<ul id="world-list">
+		</ul>
+		<script>
+			(function($){
+				World = Backbone.Model.extend({
+				name:null
+			});
+				Worlds = Backbone.Collection.extend({
+					initialize:function(models,options){
+					this.bind("add",options.view.addOneWorld);
+					}
+				});
+				AppView = Backbone.View.extend({
+					el:$("body"),
+					initialize:function(){
+						this.worlds = new Worlds(null,{view:this})
+					},
+				events:{
+					"click #check":"checkIn",
+				},
+				checkIn:function(event){
+					var world_name = prompt("where are you come from?");
+					if(world_name == "") world_name = 'unknown';
+					var world = new World({name:world_name});
+                            this.worlds.add(world);
+				},
+				addOneWorld:function(model){
+					$("#world-list").append("<li>here is <b>" + model.get('name') + "</b>,hello world!</li>")
+				}
+				});
+				var appview = new AppView;
+			})(jQuery);
+		</script>	
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>new comer</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+	</head>
+	<body>
+		<button id="check">new comer</button>
+		<ul id="world-list">
+		</ul>
+		<script>
+			(function($){
+				var Man = Backbone.Model.extend({
+					defaults:{
+						name:"gaolin",
+						age:"22"
+					},
+					aboutMe:function(){
+						return "my name is " + this.get("name");
+					}
+				});
+				var man = new Man();
+				alert(man.aboutMe());
+			})(jQuery);
+		</script>	
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>new comer</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+	</head>
+	<body>
+		<div id="divTip">点击</div>
+		<script>
+			var divView = {
+				el:'#divTip',
+				tip:'hello world!',
+				onClick:function(){
+					$(this.el).html(this.tip);
+				}
+			};
+			_.bindAll(divView,'onClick');
+			$(divView.el).bind('click',divView.onClick);
+		</script>
+	</body>
+</html>
