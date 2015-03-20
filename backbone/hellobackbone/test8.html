@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>template</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<style>
+			table{
+				font-family: verdana,arial,sans-serif;
+				color:#333333;
+				border-width: 1px;
+				border-color: #666666;
+				border-collapse: collapse;
+			}
+			table th {
+				border-width: 1px;
+				font-size:15px;
+				padding: 8px;
+				border-style: solid;
+				border-color: #666666;
+				background-color: #dedede;
+			}
+			table td {
+				border-width: 1px;
+				font-size:13px;
+				padding: 8px;
+				border-style: solid;
+				border-color: #666666;
+				background-color: #ffffff;
+			}
+
+		</style>
+	</head>
+	<body>
+		<script type="text/template" id="tpl">
+			<% var intSumScore = 0,intAveScore = 0;
+			   for(var i = 0;i < list.length;i++){ 
+			   	 var item = list[i] %>
+			   	<tr>
+			   		<td><%=item.StuId%></td>
+			   		<td><%=item.Name%></td>
+			   		<td><%=item.Sex%></td>
+			   		<td><%=item.Score%></td>
+			   	</tr>
+			   	<%
+			   		intSumScore += parseInt(item.Score);
+			   	}
+			   	intAveScore = intSumScore / list.length;%>
+			   	<tr>
+			   		<td>平均分:</td>
+			   		<td><%=intAveScore%></td>
+			   		<td>总分:</td>
+			   		<td><%=intSumScore%></td>
+			   	</tr>   
+		</script>
+		<table id="element">
+			<tr>
+			<th>学号</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>总分</th>
+			</tr>
+		</table>
+<script type="text/javascript">
+			var ele = $('#element'),
+				tpl = $('#tpl').html();
+			var data = {
+				list:[
+				{StuId:'s0101',Name:'刘小明',Sex:'男',Score:'345'},
+				{StuId:'s0102',Name:'李彦青',Sex:'女',Score:'445'},
+				{StuId:'s0103',Name:'张二宝',Sex:'男',Score:'355'},
+				{StuId:'s0104',Name:'陈明基',Sex:'男',Score:'564'},
+				{StuId:'s0105',Name:'书明珠',Sex:'女',Score:'543'}
+				]
+			}
+			var html = _.template(tpl,data);
+			ele.append(html);
+		</script>
+	</body>
+</html>

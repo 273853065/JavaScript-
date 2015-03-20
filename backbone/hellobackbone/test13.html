@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>绑定多个事件</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<script>
+			var person = Backbone.Model.extend({
+				defaults:{
+					name:"高琳",
+					sex:"女",
+					age:32,
+					score:120
+				}
+			});
+			var man = new person();
+			var intNum = 0;
+			man.once("change:age",function(){
+				intNum++;
+				console.log(intNum);
+			});
+			man.set("age",25);
+			man.set("age",22);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

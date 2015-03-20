@@ -5,15 +5,15 @@
 		<meta charset="utf-8">
 		<script src="jquery-1.10.2.js"></script>
 		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
 		<script>
-				var data = {
-					name:"高琳",
-					age:"22"
-				}
-				var object = _(data);
-				console.log(object.value().name + "_" + object.value().age);
+			var tpl = _.template("<%=str%>");
+			console.log(tpl({str:'姓名:高琳'}));
+				//var tpl = _.template("<%console.log(str)%>");
+				//tpl({str:'姓名:陶国荣'});
 		</script>
 	</head>
 	<body>
+
 	</body>
 </html>

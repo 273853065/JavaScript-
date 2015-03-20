@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>绑定多个事件</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<script>
+			var person = Backbone.Model.extend({
+				defaults:{
+					name:"高琳",
+					sex:"女",
+					age:32,
+					score:120
+				}
+			});
+			var man = new person();
+			man.on("change:age",function(){
+				console.log("change:age");
+			});
+			var event_fun = function(){
+				console.log("change:name");
+			};
+			man.on("change:name",event_fun);
+			man.on("all",function(value){
+				console.log("change:" + value);
+			});
+			man.trigger("all");
+			man.set("name","高琳琳");
+			man.set("age",23);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

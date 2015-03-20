@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>绑定多个事件</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<style>
+			body{
+				font-size:12px;
+			}
+		</style>
+		<script>
+		$(function(){
+			var InfoView = Backbone.View.extend({
+				el:'#view',
+				events:{
+					'click #btnshow':'ShowInfo',
+					'click #btnhide':'HideInfo'
+				},
+				ShowInfo:function(){
+					$("#info").show();
+				},
+				HideInfo:function(){
+					$("#info").hide();
+				}
+			});
+			var view = new InfoView();
+		});
+		</script>
+	</head>
+	<body>
+	<div id="view">
+		<input type="button" value="显示" id="btnshow" />
+		<input type="button" value="隐藏" id="btnhide" />
+	</div>
+	<div id="info">
+		姓名：高琳<br />
+		性别：女<br />
+		年龄：22<br />
+		邮箱：273853065@qq.com
+	</div>
+	</body>
+</html>

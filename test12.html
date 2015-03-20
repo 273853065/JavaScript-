@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>绑定多个事件</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<script>
+			var person = Backbone.Model.extend({
+				defaults:{
+					name:"高琳",
+					sex:"女",
+					age:32,
+					score:120
+				}
+			});
+			var man = new person();
+			man.on("change:score change:age",function(model,value){
+				var oldage = model.previous("age");
+				var newage = model.get("age");
+				if(oldage != newage)
+					console.log("age原值:" + oldage + ",新值:" + newage);
+				var oldscore = model.previous("score");
+				var newscore = model.get("score");
+				if(oldscore != newscore)
+					console.log("score原值:" + ",新值:" + newscore);
+			});
+			man.set("age",22);
+			man.set("score",430);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
