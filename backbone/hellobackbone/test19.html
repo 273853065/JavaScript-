@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>model1</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<style></style>
+		<script>
+			var student = Backbone.Model.extend({
+				initialize:function(){
+					this.on('invalid',function(model,error){
+						console.log(error)
+					});
+					this.on("change:Name",function(model,value){
+						console.log('您触发了Name属性修改事件！');
+					});
+				},
+				validate:function(attrs){
+					if(!_.isString(attrs.Name)) return '姓名必为字符'
+					if(!_.isNumber(attrs.Score)) return '分数必为数字'
+				},
+				defaults:{
+					Code:"10001",
+					Name:"高琳",
+					Score:100
+				}
+			});
+			var stuA = new student();
+			stuA.set({
+				Code:"10105",
+				Name:2124,
+				Score:600
+			},{"silent":true});
+			console.log(stuA.toJSON());
+			if(!_.isString(stuA.get("Name")) || !_.isNumber(stuA.get("Score"))){
+				stuA.set({
+					"Name":stuA.previous("Name"),
+					"Score":stuA.previous("Score")
+				});
+			}
+			console.log(stuA.toJSON());
+			stuA.unset("Name");
+			console.log(stuA.get("Name"));
+			console.log(stuA.toJSON());
+			stuA.set("Name",stuA.previous("Name"));
+			console.log(stuA.toJSON());
+			stuA.clear();
+			console.log(stuA.toJSON());
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>model1</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<style></style>
+		<script>
+			var student = Backbone.Model.extend({
+				initialize:function(){
+					this.on("change:Name",function(){
+						var oldname = this.previous("Name");
+						var newname = this.get("Name");
+						if(oldname != newname){
+							console.log("Name原值:" + oldname + ",新值:" + newname);
+						}
+					});
+				},
+				defaults:{
+					Code:"",
+					Name:"高琳",
+					Score:""
+				}
+			});
+			var stuA = new student();
+			stuA.set("Name","智恒");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

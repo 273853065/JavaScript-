@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>model1</title>
+		<meta charset="utf-8">
+		<script src="jquery-1.10.2.js"></script>
+		<script src="underscore.js"></script>
+		<script src="backbone.js"></script>
+		<style></style>
+		<script>
+			var student = Backbone.Model.extend({
+				defaults:{
+					Code:"10001",
+					Name:"高琳",
+					Score:100
+				}
+			});
+			var stuA = new student();
+			stuA.set({
+				Code:"10105",
+				Name:"智恒",
+				Score:600
+			});
+			console.log(stuA.attributes);
+			var attrs = stuA.attributes;
+			for(var i in attrs){
+				console.log(i + ":" + stuA.attributes[i]);
+			}
+    </script>
+	</head>
+	<body>
+	</body>
+</html>

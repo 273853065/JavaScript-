@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="Js/underscore-min.js" type="text/javascript"></script>
+    <script src="Js/backbone-min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var student = Backbone.Model.extend({
+    	initialize:function(){
+    	},
+    	url:"/Ch4/api/save.php",
+    	default:{
+    		Code:"10001",
+    		Name:"张三",
+    		Score:100
+    	}
+    });
+    var stuA = new student();
+    stuA.set({
+    	Code:"102035",
+    	Name:"高琳",
+    	Score:750
+    });
+    stuA.save();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

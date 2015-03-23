@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="jquery-1.10.2.js"></script>
+    <script src="underscore.js"></script>
+    <script src="backbone.js"></script>
+    <script type="text/javascript">
+       var student = Backbone.Model.extend({
+           initialize: function () {
+           },
+            defaults:{
+                    Code:"10001",
+                    Name:"高琳",
+                    Score:100
+                }
+       });       
+        var stuA = new student(); 
+			stuA.set({
+           Code: "10104",
+            Name: "周小敏",
+           Score: "500"
+        });             
+        console.log(stuA.attributes);
+        var attrs = stuA.attributes;
+        for (var i in attrs) {
+            console.log(i + ":" + stuA.attributes[i]);
+        }       
+    </script>
+</head>
+<body>
+
+</body>
+</html>
